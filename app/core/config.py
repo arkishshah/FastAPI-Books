@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
     # Database
-    DATABASE_URL: str = f"sqlite:///{Path(__file__).parent.parent.parent}/books.db"
+    DATABASE_URL: str = os.getenv("DATABASE_URL", f"sqlite:///{os.path.join(os.getcwd(), 'books.db')}")
     
     # CORS Settings
     BACKEND_CORS_ORIGINS: List[str] = [
